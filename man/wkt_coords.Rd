@@ -12,27 +12,27 @@ wkt_coords(wkt)
 \value{
 a data.frame of four columns; \code{object} (containing which object
 the row refers to), \code{ring} containing which layer of the object the row
-refers to, \code{lat} and \code{lng}.
+refers to, \code{lng} and \code{lat}.
 }
 \description{
 \code{wkt_coords} extracts lat/long values from WKT polygons,
 specifically the outer shell of those polygons (working on the assumption that
 said outer edge is what you want).
+
+Because it assumes \emph{coordinates}, it also assumes a sphere - say, the earth -
+and uses spherical coordinate values.
 }
 \examples{
 wkt_coords("POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))")
-#[[1]]
-#lon lat
-#  object  ring lat lng
-#1      1 outer  10  30
-#2      1 outer  40  40
-#3      1 outer  40  20
-#4      1 outer  20  10
-#5      1 outer  10  30
+# object  ring lng lat
+# 1    1 outer  30  10
+# 2    1 outer  40  40
+# 3    1 outer  20  40
+# 4    1 outer  10  20
+# 5    1 outer  30  10
 
 }
 \seealso{
 \code{\link{wkt_bounding}} to extract a bounding box,
 and \code{\link{wkt_centroid}} to extract the centroid.
 }
-

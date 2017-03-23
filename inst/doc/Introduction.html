@@ -12,7 +12,7 @@
 
 <meta name="author" content="Oliver Keyes" />
 
-<meta name="date" content="2017-01-21" />
+<meta name="date" content="2017-03-22" />
 
 <title>Introduction to Wicket</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to Wicket</h1>
 <h4 class="author"><em>Oliver Keyes</em></h4>
-<h4 class="date"><em>2017-01-21</em></h4>
+<h4 class="date"><em>2017-03-22</em></h4>
 
 
 
@@ -139,17 +139,17 @@ sp_object &lt;-<span class="st"> </span><span class="kw">SpatialPolygons</span>(
 <h2>Coordinate and centroid extraction</h2>
 <p>WKT POLYGONs are often used to store latitude and longitude coordinates - and you can use <code>wkt_coords</code> to get them:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wkt_coords</span>((<span class="st">&quot;POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&quot;</span>))
-<span class="co">#   object  ring lat lng</span>
-<span class="co"># 1      1 outer  10  30</span>
+<span class="co">#   object  ring lng lat</span>
+<span class="co"># 1      1 outer  30  10</span>
 <span class="co"># 2      1 outer  40  40</span>
-<span class="co"># 3      1 outer  40  20</span>
-<span class="co"># 4      1 outer  20  10</span>
-<span class="co"># 5      1 outer  10  30</span></code></pre></div>
+<span class="co"># 3      1 outer  20  40</span>
+<span class="co"># 4      1 outer  10  20</span>
+<span class="co"># 5      1 outer  30  10</span></code></pre></div>
 <p>The result of a <code>wkt_coords</code> call is a data.frame of four columns - <code>object</code>, identifying which of the input WKT objects the row refers to, <code>ring</code> referring to the layer in that object, and then <code>lat</code> and <code>lng</code>.</p>
 <p>Extracting centroids is also useful, and can be performed with <code>wkt_centroid</code>. Again, it’s entirely vectorised and produces a data.frame:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wkt_centroid</span>((<span class="st">&quot;POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))&quot;</span>))
-<span class="co">#       lat      lng</span>
-<span class="co"># 1 26.9697 25.45455</span></code></pre></div>
+<span class="co">#        lng     lat</span>
+<span class="co"># 1 25.45455 26.9697</span></code></pre></div>
 </div>
 <div id="new-features-and-bugs" class="section level2">
 <h2>New features and bugs</h2>

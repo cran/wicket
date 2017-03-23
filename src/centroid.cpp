@@ -25,7 +25,8 @@ void centroid_single(std::string wkt, T& geom_obj,
 
 //'@title Extract Centroid
 //'@description \code{get_centroid} identifies the 2D centroid
-//'in a WKT object (or vector of WKT objects).
+//'in a WKT object (or vector of WKT objects). Note that it assumes
+//'cartesian values.
 //'
 //'@param wkt a character vector of WKT objects, represented as strings
 //'
@@ -39,8 +40,8 @@ void centroid_single(std::string wkt, T& geom_obj,
 //'
 //'@examples
 //'wkt_centroid("POLYGON((2 1.3,2.4 1.7))")
-//'#  lat lng
-//'#1 1.3   2
+//'#  lng lat
+//'#1 2   1.3
 //'@export
 //[[Rcpp::export]]
 DataFrame wkt_centroid(CharacterVector wkt){
@@ -91,6 +92,6 @@ DataFrame wkt_centroid(CharacterVector wkt){
     }
   }
 
-  return DataFrame::create(_["lat"] = lat,
-                           _["lng"] = lng);
+  return DataFrame::create(_["lng"] = lng,
+                           _["lat"] = lat);
 }
