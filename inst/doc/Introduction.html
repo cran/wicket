@@ -4,7 +4,7 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
@@ -12,7 +12,7 @@
 
 <meta name="author" content="Oliver Keyes" />
 
-<meta name="date" content="2017-03-22" />
+<meta name="date" content="2017-11-18" />
 
 <title>Introduction to Wicket</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Introduction to Wicket</h1>
 <h4 class="author"><em>Oliver Keyes</em></h4>
-<h4 class="date"><em>2017-03-22</em></h4>
+<h4 class="date"><em>2017-11-18</em></h4>
 
 
 
@@ -106,7 +106,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
          <span class="st">&quot;LINESTRING (30 10, 10 90, 40 out of cheese error redo universe from start)&quot;</span>)
 <span class="kw">validate_wkt</span>(wkt)
 <span class="co">#   is_valid comments</span>
-<span class="co"># 1     TRUE &lt;NA&gt;</span>
+<span class="co"># 1    FALSE The WKT object has a different orientation from the default</span>
 <span class="co"># 2    FALSE Object could not be recognised as a supported WKT type</span>
 <span class="co"># 3    FALSE bad lexical cast: source type value could not be interpreted as target at 'out' in 'linestring (30 10, 10 90, 40 out of cheese error redo universe from start)'</span></code></pre></div>
 <p>With this you can check and clean your data before you rely on it and watch all your code fall down in a heap.</p>
@@ -123,7 +123,7 @@ Sr4 &lt;-<span class="st"> </span><span class="kw">Polygon</span>(<span class="k
 Srs1 &lt;-<span class="st"> </span><span class="kw">Polygons</span>(<span class="kw">list</span>(Sr1), <span class="st">&quot;s1&quot;</span>)
 Srs2 &lt;-<span class="st"> </span><span class="kw">Polygons</span>(<span class="kw">list</span>(Sr2), <span class="st">&quot;s2&quot;</span>)
 Srs3 &lt;-<span class="st"> </span><span class="kw">Polygons</span>(<span class="kw">list</span>(Sr3, Sr4), <span class="st">&quot;s3/4&quot;</span>)
-sp_object &lt;-<span class="st"> </span><span class="kw">SpatialPolygons</span>(<span class="kw">list</span>(Srs1,Srs2,Srs3), <span class="dv">1</span>:<span class="dv">3</span>)
+sp_object &lt;-<span class="st"> </span><span class="kw">SpatialPolygons</span>(<span class="kw">list</span>(Srs1,Srs2,Srs3), <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>)
 
 <span class="co"># With grouping</span>
 <span class="kw">sp_convert</span>(<span class="dt">x =</span> sp_object, <span class="dt">group =</span> <span class="ot">TRUE</span>)
@@ -163,7 +163,7 @@ sp_object &lt;-<span class="st"> </span><span class="kw">SpatialPolygons</span>(
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
